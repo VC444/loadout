@@ -34,7 +34,7 @@ Loadout is an open-source platform that simulates FAANG-level system design inte
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/loadout.git
+   git clone https://github.com/VC444/loadout.git
    cd loadout
    ```
 
@@ -64,9 +64,9 @@ Loadout is an open-source platform that simulates FAANG-level system design inte
 
 Create a `.env.local` file with the following variables:
 
-| Variable                     | Description                         | Required |
-| ---------------------------- | ----------------------------------- | -------- |
-| `NEXT_PUBLIC_OPENAI_API_KEY` | OpenAI API key with Realtime access | ✅       |
+| Variable                     | Description                         |
+| ---------------------------- | ----------------------------------- |
+| `NEXT_PUBLIC_OPENAI_API_KEY` | OpenAI API key with Realtime access |
 
 See `.env.example` for a complete template with instructions.
 
