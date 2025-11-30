@@ -53,7 +53,7 @@ export default function InterviewPage() {
       if (clientKey) {
         setClientApiKey(clientKey);
       }
-      await initVoiceAgent("session", false);
+      await initVoiceAgent();
       setSessionStarted(true);
       setShowApiKeyModal(false);
     } catch {

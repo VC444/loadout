@@ -83,17 +83,14 @@ const createFreshSession = async (contextOverride?: string) => {
   return session;
 };
 
-export const initVoiceAgent = async (
-  interviewId: string,
-  isPreview: boolean = false
-) => {
+export const initVoiceAgent = async () => {
   // Reset transcripts for new interview
   useDiagramStore.getState().resetTranscripts();
 
   let rotationCount = 0;
-  const MAX_ROTATIONS = isPreview ? 1 : 3;
+  const MAX_ROTATIONS = 3;
   const ROTATION_INTERVAL = 8 * 60 * 1000;
-  const TOTAL_DURATION = isPreview ? 10 * 60 * 1000 : 30 * 60 * 1000;
+  const TOTAL_DURATION = 30 * 60 * 1000;
 
   const rotateSession = async (oldSession: RealtimeSession) => {
     // console.log(`Rotating session (rotation ${rotationCount + 1})`);
@@ -125,7 +122,7 @@ export const initVoiceAgent = async (
   // Schedule first rotation after 10 minutes
   setTimeout(() => rotateSession(initialSession), ROTATION_INTERVAL);
 
-  // Final cleanup after total duration (10 minutes for preview, 30 minutes for full)
+  // Final cleanup after 30 minutes
   setTimeout(async () => {
     const currentSession = useDiagramStore.getState().session;
 
@@ -135,29 +132,8 @@ export const initVoiceAgent = async (
       currentSession.close();
     }
 
-    // Save all accumulated transcripts
-    try {
-      const allTranscripts = useDiagramStore.getState().allTranscripts;
-      const response = await fetch("/api/transcript", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          interviewId,
-          transcript: allTranscripts,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to save transcript");
-      }
-    } catch (error) {
-      console.error("Error saving transcript:", error);
-    }
-
     useDiagramStore.getState().setSession(null);
-    redirect(`/session-end?isPreview=${isPreview}`);
+    redirect("/session-end");
   }, TOTAL_DURATION);
 
   return initialSession;
