@@ -2,7 +2,7 @@
 
 > AI-powered system design interview practice platform
 
-Loadout is an open-source platform that simulates FAANG-level system design interviews. Practice with **Flint**, an AI interviewer that guides you through real interview scenarios while you draw architecture diagrams in real-time.
+Loadout is an open-source platform that simulates system design interviews. Practice with **Flint**, an AI interviewer that guides you through real interview scenarios while you draw architecture diagrams in real-time.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)

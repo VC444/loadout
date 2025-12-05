@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a Next.js 15 (App Router) application that conducts AI-powered FAANG-level system design mock interviews. Users interact with "Flint," a voice-based AI interviewer, while drawing system diagrams in Excalidraw. The interview flows through 4 stages: Functional Requirements → Non-Functional Requirements → API Design → System Architecture.
+This is a Next.js 15 (App Router) application that conducts AI-powered system design mock interviews. Users interact with "Flint," a voice-based AI interviewer, while drawing system diagrams in Excalidraw. The interview flows through 4 stages: Functional Requirements → Non-Functional Requirements → API Design → System Architecture.
 
 ## Architecture & Data Flow
 
