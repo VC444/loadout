@@ -5,22 +5,6 @@ import { VOICE_AGENT_INSTRUCTIONS } from "./prompt";
 import { redirect } from "next/navigation";
 import { OrderedExcalidrawElement } from "@excalidraw/excalidraw/element/types";
 
-// const SECTIONS = [
-//   "Functional Requirements",
-//   "Non-Functional Requirements",
-//   "API Design",
-//   "System Design Diagram",
-// ] as const;
-
-// type Section = (typeof SECTIONS)[number];
-
-// const getRelevantHistory = (history: RealtimeItem[], section: Section) => {
-//   const sectionIndex = SECTIONS.indexOf(section);
-//   const relevantHistory = history.slice(sectionIndex);
-
-//   return relevantHistory;
-// };
-
 // Generate context prompt based on current interview progress
 const generateContinuationContext = (currentSection: string): string => {
   const sectionMap: Record<string, string> = {
